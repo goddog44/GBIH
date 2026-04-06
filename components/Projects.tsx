@@ -7,9 +7,12 @@ const content = {
     sub: "Un portefeuille de projets en cours de constitution — nos premières réalisations témoignent de notre capacité d'exécution et de notre standard d'excellence.",
     badge: "Photos à venir",
     projects: [
-      { cat: "Construction", title: "Bâtiment Administratif", location: "Yaoundé, Cameroun", status: "Livré" },
-      { cat: "Réhabilitation", title: "Rénovation de Complexe", location: "Centre, Cameroun", status: "En cours" },
-      { cat: "Équipements", title: "Acquisition & Livraison", location: "National", status: "Réalisé" },
+      { cat: "Construction", title: "Bâtiment Administratif", location: "Yaoundé, Cameroun", status: "Livré", image: "1.jpg" },
+      { cat: "Réhabilitation", title: "Rénovation de Complexe", location: "Centre, Cameroun", status: "En cours", image: "2.jpg" },
+      { cat: "Équipements", title: "Acquisition & Livraison", location: "National", status: "Réalisé", image: "3.jpg" },
+      { cat: "Infrastructure", title: "Plateforme Industrielle", location: "Douala, Cameroun", status: "En chantier", image: "4.jpg" },
+      { cat: "Génie civil", title: "Réhabilitation Urbaine", location: "Yaoundé, Cameroun", status: "Livré", image: "5.png" },
+      { cat: "Construction", title: "Bureau Modulaire", location: "National", status: "Terminé", image: "6.jpg" },
     ],
   },
   en: {
@@ -18,9 +21,12 @@ const content = {
     sub: "A portfolio under construction — our first achievements demonstrate our execution capability and standard of excellence.",
     badge: "Photos coming soon",
     projects: [
-      { cat: "Construction", title: "Administrative Building", location: "Yaoundé, Cameroon", status: "Delivered" },
-      { cat: "Rehabilitation", title: "Complex Renovation", location: "Centre, Cameroon", status: "Ongoing" },
-      { cat: "Equipment", title: "Acquisition & Delivery", location: "National", status: "Completed" },
+      { cat: "Construction", title: "Administrative Building", location: "Yaoundé, Cameroon", status: "Delivered", image: "1.jpg" },
+      { cat: "Rehabilitation", title: "Complex Renovation", location: "Centre, Cameroon", status: "Ongoing", image: "2.jpg" },
+      { cat: "Equipment", title: "Acquisition & Delivery", location: "National", status: "Completed", image: "3.jpg" },
+      { cat: "Infrastructure", title: "Industrial Platform", location: "Douala, Cameroon", status: "Underway", image: "4.jpg" },
+      { cat: "Civil Works", title: "Urban Rehabilitation", location: "Yaoundé, Cameroon", status: "Delivered", image: "5.png" },
+      { cat: "Construction", title: "Modular Office", location: "National", status: "Completed", image: "6.jpg" },
     ],
   },
 };
@@ -47,23 +53,20 @@ export default function Projects({ lang }: { lang: "fr" | "en" }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
           {t.projects.map((p, i) => (
             <div key={i} style={{ background: "#fff", border: "1px solid rgba(201,168,76,0.15)", overflow: "hidden" }}>
-              {/* Image placeholder */}
               <div
                 style={{
                   height: 200,
-                  background: `linear-gradient(135deg, #0a0f1e ${i * 10}%, #111827)`,
+                  backgroundImage: `url('/${p.image}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  alignItems: "flex-end",
+                  justifyContent: "flex-start",
                   position: "relative",
                 }}
               >
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style={{ opacity: 0.18 }}>
-                  <rect x="6" y="18" width="36" height="24" rx="1" stroke="#c9a84c" strokeWidth="1.5" />
-                  <path d="M6 22L24 10L42 22" stroke="#c9a84c" strokeWidth="1.5" strokeLinecap="round" />
-                  <rect x="18" y="30" width="12" height="12" stroke="#c9a84c" strokeWidth="1.2" />
-                </svg>
-                <div style={{ position: "absolute", top: "0.75rem", right: "0.75rem", background: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.3)", padding: "0.2rem 0.6rem" }}>
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(10,15,30,0.8) 100%)" }} />
+                <div style={{ position: "absolute", top: "0.75rem", right: "0.75rem", background: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.3)", padding: "0.2rem 0.6rem", zIndex: 1 }}>
                   <span style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#c9a84c", fontFamily: "'DM Sans', sans-serif" }}>{t.badge}</span>
                 </div>
               </div>
