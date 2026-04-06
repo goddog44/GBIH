@@ -27,7 +27,10 @@ export default function Hero({ lang }: { lang: "fr" | "en" }) {
       id="accueil"
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(160deg, #0a0f1e 0%, #0d1628 55%, #111827 100%)",
+        backgroundImage: "linear-gradient(160deg, rgba(10,15,30,0.9) 0%, rgba(13,22,40,0.85) 55%, rgba(17,24,39,0.95) 100%), url('/mslid1.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         position: "relative",
         overflow: "hidden",
         display: "flex",
